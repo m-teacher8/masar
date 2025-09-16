@@ -583,6 +583,13 @@
             color: #4a69bd;
         }
         
+        .empty-message {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -914,7 +921,7 @@
                     <div class="grade-section" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-right-color: #2196f3;">
                         <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> تمارين لجميع الصفوف</h3>
                         
-                         <!-- تمارين الصف العاشر -->
+                        <!-- تمارين الصف العاشر -->
                         <div class="dropdown">
                             <div class="dropdown-header" onclick="toggleDropdown('grade10')">
                                 <span>تمارين الصف العاشر</span>
@@ -927,20 +934,22 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- تمارين الصف التاسع -->
+                        
+                        <!-- تمارين الصف التاسع -->
                         <div class="dropdown">
                             <div class="dropdown-header" onclick="toggleDropdown('grade9')">
                                 <span>تمارين الصف التاسع</span>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div class="dropdown-content" id="grade10">
+                            <div class="dropdown-content" id="grade9">
                                 <div class="empty-message">
                                     <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
                                     <p>لم يتم إضافة تمارين بعد</p>
                                 </div>
                             </div>
                         </div>
-                         <!-- تمارين الصف الثامن -->
+                        
+                        <!-- تمارين الصف الثامن -->
                         <div class="dropdown">
                             <div class="dropdown-header" onclick="toggleDropdown('grade8')">
                                 <span>تمارين الصف الثامن</span>
@@ -953,7 +962,8 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- تمارين الصف السابع -->
+                        
+                        <!-- تمارين الصف السابع -->
                         <div class="dropdown">
                             <div class="dropdown-header" onclick="toggleDropdown('grade7')">
                                 <span>تمارين الصف السابع</span>
@@ -966,7 +976,8 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- تمارين الصف السادس -->
+                        
+                        <!-- تمارين الصف السادس -->
                         <div class="dropdown">
                             <div class="dropdown-header" onclick="toggleDropdown('grade6')">
                                 <span>تمارين الصف السادس</span>
@@ -979,7 +990,8 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- تمارين الصف الخامس -->
+                        
+                        <!-- تمارين الصف الخامس -->
                         <div class="dropdown">
                             <div class="dropdown-header" onclick="toggleDropdown('grade5')">
                                 <span>تمارين الصف الخامس</span>
@@ -989,11 +1001,6 @@
                                 <div class="empty-message">
                                     <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
                                     <p>لم يتم إضافة تمارين بعد</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1120,5 +1127,3 @@
     </script>
 </body>
 </html>
-
-
