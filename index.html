@@ -857,12 +857,30 @@
                                 <div class="exercise-info">
                                     <div class="exercise-title">تمارين الصف العاشر</div>
                                 </div>
-                                <a href="#" class="download-btn">
-                                    <i class="fas fa-download"></i> دخول
-                                </a>
-                            </div>
-                            <div class="exercise-item">
-                                <div class="exercise-icon">
+                                <div class="exercise-grade">الفصل الدراسي الأول</div>
+            </div>
+        </div>
+        
+        <div class="exercise-content">
+            <p>اختر الدرس الذي تريد الوصول إليه من القائمة المنسدلة أدناه:</p>
+            
+            <div class="dropdown-container">
+                <label class="dropdown-label">اختر الدرس:</label>
+                <div class="custom-dropdown">
+                    <select id="lesson-select">
+                        <option value="" selected disabled>-- اختر من القائمة --</option>
+                        <option value="lesson1-1">الدرس الأول 1-1</option>
+                        <option value="lesson1-2">الدرس الثاني 1-2</option>
+                        <option value="lesson2-1">الدرس الثالث 2-1</option>
+                        <option value="lesson2-2">الدرس الرابع 2-2</option>
+                        <option value="lesson3-1">الدرس الخامس 3-1</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="action-button" onclick="navigateToLesson()">
+                <i class="fas fa-download"></i> دخول إلى الدرس
+            </button>
                                     <i class="fas fa-9"></i>
                                 </div>
                                 <div class="exercise-info">
@@ -1023,6 +1041,7 @@
     </script>
 </body>
 </html>
+
 
 
 
