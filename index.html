@@ -700,23 +700,23 @@
                     
                     <div class="info-section">
                         <h4><i class="fas fa-envelope"></i> تواصل معنا</h4>
-                        <p>نرحل بأسئلتكم واستفساراتكم واقتراحاتكم. يمكنكم التواصل معنا عبر النموذج أدناه أو عبر البريد الإلكتروني: info@ain.alhur-111@edu.moe.om</p>
+                        <p>نرحل بأسئلتكم واستفساراتكم واقتراحاتكم. يمكنكم التواصل معنا عبر النموذج أدناه أو عبر البريد الإلكتروني: ain.alhur-111@edu.moe.om</p>
                     </div>
                     
                     <div class="contact-form">
                         <h4>أرسل رسالة</h4>
-                        <form id="contactForm">
+                        <form id="contactForm" action="https://formspree.io/f/xjvnqkqv" method="POST">
                             <div class="form-group">
                                 <label for="name">الاسم الكامل</label>
-                                <input type="text" id="name" required>
+                                <input type="text" id="name" name="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">البريد الإلكتروني</label>
-                                <input type="email" id="email" required>
+                                <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="message">الرسالة</label>
-                                <textarea id="message" required></textarea>
+                                <textarea id="message" name="message" required></textarea>
                             </div>
                             <button type="submit" class="submit-btn">إرسال الرسالة</button>
                         </form>
@@ -1109,9 +1109,32 @@
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
+                    // منع الإرسال الافتراضي للنموذج
                     e.preventDefault();
+                    
+                    // عرض رسالة النجاح
                     showToast('شكراً لك على رسالتك! سنقوم بالرد عليك في أقرب وقت ممكن.');
+                    
+                    // إعادة تعيين النموذج
                     contactForm.reset();
+                    
+                    // إرسال النموذج باستخدام Formspree
+                    const formData = new FormData(contactForm);
+                    fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            console.log('تم إرسال الرسالة بنجاح');
+                        } else {
+                            console.error('حدث خطأ أثناء إرسال الرسالة');
+                        }
+                    }).catch(error => {
+                        console.error('حدث خطأ أثناء إرسال الرسالة:', error);
+                    });
                 });
             }
             
