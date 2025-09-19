@@ -715,7 +715,7 @@
                 <div class="card-body" id="aboutUs">
                     <div class="platform-description">
                         <h4><i class="fas fa-question-circle"></i> ماهي منصة مسار؟</h4>
-                        <p>هي منصة تعليمية متخصصة في مادة الرياضيات، تهدف إلى تقديم محتوى تعليمي متميز لجميع المراحل الدراسية. نقدم تمارين إضافية مع حلول مفصلة عبر مقاطع فيديو لتسهيل فهم الدروس وتحسين الأداء الدراسي.</p>
+                        <p>هي منصة تعليمية متخصصة في مادة الرياضيات، تهدف إلى تقديم محتوى تعليمي متميز . نقدم تمارين إضافية مع حلول مفصلة عبر مقاطع فيديو لتسهيل فهم الدروس وتحسين الأداء الدراسي.</p>
                     </div>
                     
                     <div class="info-section">
@@ -988,87 +988,7 @@
                 </div>
             </div>
         </div>
-        <!-- HTML -->
-<div class="video-modal" id="videoModal">
-    <div class="video-container">
-        <iframe class="video-iframe" id="videoFrame" src="about:blank" allowfullscreen></iframe>
-        <div style="text-align: center; margin-top: 10px;">
-            <button class="close-btn" onclick="closeVideo()">إغلاق</button>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* CSS */
-    .video-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .video-container {
-        width: 80%;
-        max-width: 800px;
-        background: black;
-        padding: 10px;
-        border-radius: 8px;
-    }
-    
-    .video-iframe {
-        width: 100%;
-        height: 450px;
-        border: none;
-    }
-    
-    .close-btn {
-        background-color: #ffc107;
-        color: #333;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 4px;
-        margin-top: 10px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-</style>
-
-<script>
-    // JavaScript
-    function showVideo() {
-        const modal = document.getElementById('videoModal');
-        const iframe = document.getElementById('videoFrame');
-        
-        // تحويل رابط المشاركة إلى رابط تضمين
-        const shareUrl = "https://drive.google.com/file/d/1ZXjR28S1r32EmEGbYuzer3hgXR3AevWk/view?usp=drive_link";
-        const embedUrl = shareUrl.replace("/file/d/", "/file/d/").replace("/view?usp=drive_link", "/preview");
-        
-        iframe.src = embedUrl;
-        modal.style.display = 'flex';
-    }
-    
-    function closeVideo() {
-        const modal = document.getElementById('videoModal');
-        const iframe = document.getElementById('videoFrame');
-        
-        iframe.src = "about:blank";
-        modal.style.display = 'none';
-    }
-    
-    // إغلاق النافذة عند النقر خارجها
-    window.onclick = function(event) {
-        const modal = document.getElementById('videoModal');
-        if (event.target == modal) {
-            closeVideo();
-        }
-    };
-</script>
+        </script>
                         <!-- تمارين الصف التاسع -->
                         <div class="dropdown">
                             <div class="dropdown-header" onclick="toggleDropdown('grade9')">
@@ -1261,6 +1181,7 @@
     </script>
 </body>
 </html>
+
 
 
 
