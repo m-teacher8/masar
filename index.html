@@ -1049,6 +1049,13 @@
                                     <i class="fas fa-eye watch-icon"></i>
                                     <span class="lesson-title">الدرس الأول 1-1 التمثيلات البيانية للتحويل</span>
                                 </div>
+                                
+                                <!-- تمت إضافة الدرس 1-2 تمثيل المناطق على المستوى الإحداثي -->
+                                <div class="lesson-item" onclick="openLesson1_2()">
+                                    <i class="fas fa-eye watch-icon"></i>
+                                    <span class="lesson-title">الدرس 1-2 تمثيل المناطق على المستوى الإحداثي</span>
+                                </div>
+                                
                                 <!-- باقي المحتوى الأصلي -->
                                 <div class="empty-message">
                                     <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
@@ -1145,6 +1152,19 @@
             </div>
         </div>
         
+        <!-- نافذة الفيديو المنبثقة للدرس 1-2 -->
+        <div class="video-modal" id="videoModal1_2">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>الدرس 1-2 تمثيل المناطق على المستوى الإحداثي</h3>
+                    <button class="close-btn" onclick="closeVideoModal1_2()">&times;</button>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1I_1QqlsG3DVHsQdNtMplV_3eZq6hAYOM/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        
         <footer>
             <p>© 2025 منصة مسار للرياضيات. جميع الحقوق محفوظة.</p>
         </footer>
@@ -1215,28 +1235,48 @@
             }, 3000);
         }
 
-        // وظيفة فتح نافذة الفيديو
+        // وظيفة فتح نافذة الفيديو للدرس الأول
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
             modal.classList.add('show');
             document.body.style.overflow = 'hidden'; // منع التمرير عند فتح النافذة
         }
 
-        // وظيفة إغلاق نافذة الفيديو
+        // وظيفة إغلاق نافذة الفيديو للدرس الأول
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
             modal.classList.remove('show');
             document.body.style.overflow = ''; // إعادة التمرير
         }
 
-        // إغلاق النافذة عند النقر خارجها
+        // وظيفة فتح نافذة الفيديو للدرس 1-2
+        function openLesson1_2() {
+            const modal = document.getElementById('videoModal1_2');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // منع التمرير عند فتح النافذة
+        }
+
+        // وظيفة إغلاق نافذة الفيديو للدرس 1-2
+        function closeVideoModal1_2() {
+            const modal = document.getElementById('videoModal1_2');
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // إعادة التمرير
+        }
+
+        // إغلاق النوافذ عند النقر خارجها
         document.getElementById('videoModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeVideoModal();
             }
         });
 
-        // جعل الأقسام mفتوحة بشكل افتراضي
+        document.getElementById('videoModal1_2').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal1_2();
+            }
+        });
+
+        // جعل الأقسام مفتوحة بشكل افتراضي
         document.addEventListener('DOMContentLoaded', function() {
             // فتح جميع الأقسام عند تحميل الصفحة
             document.querySelectorAll('.card-body').forEach(section => {
@@ -1283,6 +1323,3 @@
     </script>
 </body>
 </html>
-
-
-
