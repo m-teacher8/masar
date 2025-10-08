@@ -47,6 +47,24 @@
             justify-content: center;
         }
         
+        /* تحسينات للهواتف المحمولة */
+        @media (max-width: 768px) {
+            header {
+                background-size: cover;
+                background-position: center 30%;
+                min-height: 320px;
+                padding: 50px 0 40px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                min-height: 280px;
+                padding: 40px 0 30px 0;
+                background-position: center 35%;
+            }
+        }
+        
         .math-background {
             position: absolute;
             top: 0;
@@ -939,11 +957,6 @@
             
             .exercise-icon {
                 margin: 0 0 8px 0;
-            }
-            
-            header {
-                min-height: 300px;
-                padding: 50px 0 40px 0;
             }
             
             .modal-content {
