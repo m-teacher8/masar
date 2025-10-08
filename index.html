@@ -37,7 +37,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background: linear-gradient(135deg, rgba(44, 62, 80, 0.7), rgba(74, 105, 189, 0.7)), 
-                        url('1fbacb69ec8f4be8b09439a0ceb8dbb5.jpg') center/cover no-repeat;
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234a69bd"/></svg>') center/cover no-repeat;
             color: white;
             min-height: 350px;
             display: flex;
@@ -741,7 +741,41 @@
             color: white;
         }
         
-        /* أنماط الحاسبة العلمية */
+        /* أنماط الحاسبة العلمية المنسدلة */
+        .calculator-dropdown {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .calculator-dropdown-header {
+            background: linear-gradient(135deg, #4a69bd, #6a89cc);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .calculator-dropdown-header:hover {
+            background: linear-gradient(135deg, #3c5aa6, #5c7cba);
+        }
+        
+        .calculator-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #f8f9fa;
+            border-radius: 0 0 6px 6px;
+        }
+        
+        .calculator-dropdown-content.show {
+            max-height: 1000px;
+        }
+        
         .calculator-container {
             background: white;
             border-radius: 10px;
@@ -1361,97 +1395,113 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- الحاسبة العلمية - تم نقلها إلى هنا -->
-                        <div class="calculator-container">
-                            <div class="calculator-mode-toggle">
-                                <button class="calculator-mode-btn active" id="basicMode">أساسي</button>
-                                <button class="calculator-mode-btn" id="scientificMode">علمي</button>
-                            </div>
-                            <div class="calculator-display">
-                                <div class="calculator-expression" id="expression"></div>
-                                <div class="calculator-result" id="result">0</div>
-                            </div>
-                            <div class="calculator-buttons" id="basicButtons">
-                                <!-- الصف الأول -->
-                                <button class="calculator-btn clear" onclick="clearAll()">C</button>
-                                <button class="calculator-btn clear" onclick="clearEntry()">CE</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('**')">x²</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('/')">÷</button>
-                                
-                                <!-- الصف الثاني -->
-                                <button class="calculator-btn" onclick="appendToDisplay('7')">7</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('8')">8</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('9')">9</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('*')">×</button>
-                                
-                                <!-- الصف الثالث -->
-                                <button class="calculator-btn" onclick="appendToDisplay('4')">4</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('5')">5</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('6')">6</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('-')">-</button>
-                                
-                                <!-- الصف الرابع -->
-                                <button class="calculator-btn" onclick="appendToDisplay('1')">1</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('2')">2</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('3')">3</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('+')">+</button>
-                                
-                                <!-- الصف الخامس -->
-                                <button class="calculator-btn" onclick="appendToDisplay('0')">0</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('.')">.</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('%')">%</button>
-                                <button class="calculator-btn equals" onclick="calculateResult()">=</button>
-                            </div>
-                            <div class="calculator-buttons" id="scientificButtons" style="display: none;">
-                                <!-- الصف الأول -->
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.sin(')">sin</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.cos(')">cos</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.tan(')">tan</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.log(')">ln</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.log10(')">log</button>
-                                
-                                <!-- الصف الثاني -->
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.asin(')">sin⁻¹</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.acos(')">cos⁻¹</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.atan(')">tan⁻¹</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.sqrt(')">√</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('**')">x²</button>
-                                
-                                <!-- الصف الثالث -->
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.PI')">π</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('Math.E')">e</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('(')">(</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay(')')">)</button>
-                                <button class="calculator-btn function" onclick="appendToDisplay('**(')">xʸ</button>
-                                
-                                <!-- الصف الرابع -->
-                                <button class="calculator-btn" onclick="appendToDisplay('7')">7</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('8')">8</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('9')">9</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('/')">÷</button>
-                                <button class="calculator-btn clear" onclick="clearAll()">C</button>
-                                
-                                <!-- الصف الخامس -->
-                                <button class="calculator-btn" onclick="appendToDisplay('4')">4</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('5')">5</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('6')">6</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('*')">×</button>
-                                <button class="calculator-btn clear" onclick="clearEntry()">CE</button>
-                                
-                                <!-- الصف السادس -->
-                                <button class="calculator-btn" onclick="appendToDisplay('1')">1</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('2')">2</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('3')">3</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('-')">-</button>
-                                <button class="calculator-btn function" onclick="backspace()">⌫</button>
-                                
-                                <!-- الصف السابع -->
-                                <button class="calculator-btn" onclick="appendToDisplay('0')">0</button>
-                                <button class="calculator-btn" onclick="appendToDisplay('.')">.</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('%')">%</button>
-                                <button class="calculator-btn operator" onclick="appendToDisplay('+')">+</button>
-                                <button class="calculator-btn equals" onclick="calculateResult()">=</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم الآلة الحاسبة الجديد -->
+            <div class="card">
+                <div class="card-header" onclick="toggleSection('calculator')">
+                    <span>الحاسبة العلمية</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="card-body" id="calculator">
+                    <div class="calculator-dropdown">
+                        <div class="calculator-dropdown-header" onclick="toggleCalculatorDropdown()">
+                            <span><i class="fas fa-calculator"></i> الحاسبة العلمية المتقدمة</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="calculator-dropdown-content" id="calculatorDropdown">
+                            <div class="calculator-container">
+                                <div class="calculator-mode-toggle">
+                                    <button class="calculator-mode-btn active" id="basicMode">أساسي</button>
+                                    <button class="calculator-mode-btn" id="scientificMode">علمي</button>
+                                </div>
+                                <div class="calculator-display">
+                                    <div class="calculator-expression" id="expression"></div>
+                                    <div class="calculator-result" id="result">0</div>
+                                </div>
+                                <div class="calculator-buttons" id="basicButtons">
+                                    <!-- الصف الأول -->
+                                    <button class="calculator-btn clear" onclick="clearAll()">C</button>
+                                    <button class="calculator-btn clear" onclick="clearEntry()">CE</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('**')">x²</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('/')">÷</button>
+                                    
+                                    <!-- الصف الثاني -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('7')">7</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('8')">8</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('9')">9</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('*')">×</button>
+                                    
+                                    <!-- الصف الثالث -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('4')">4</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('5')">5</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('6')">6</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('-')">-</button>
+                                    
+                                    <!-- الصف الرابع -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('1')">1</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('2')">2</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('3')">3</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('+')">+</button>
+                                    
+                                    <!-- الصف الخامس -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('0')">0</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('.')">.</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('%')">%</button>
+                                    <button class="calculator-btn equals" onclick="calculateResult()">=</button>
+                                </div>
+                                <div class="calculator-buttons" id="scientificButtons" style="display: none;">
+                                    <!-- الصف الأول -->
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.sin(')">sin</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.cos(')">cos</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.tan(')">tan</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.log(')">ln</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.log10(')">log</button>
+                                    
+                                    <!-- الصف الثاني -->
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.asin(')">sin⁻¹</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.acos(')">cos⁻¹</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.atan(')">tan⁻¹</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.sqrt(')">√</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('**')">x²</button>
+                                    
+                                    <!-- الصف الثالث -->
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.PI')">π</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('Math.E')">e</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('(')">(</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay(')')">)</button>
+                                    <button class="calculator-btn function" onclick="appendToDisplay('**(')">xʸ</button>
+                                    
+                                    <!-- الصف الرابع -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('7')">7</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('8')">8</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('9')">9</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('/')">÷</button>
+                                    <button class="calculator-btn clear" onclick="clearAll()">C</button>
+                                    
+                                    <!-- الصف الخامس -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('4')">4</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('5')">5</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('6')">6</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('*')">×</button>
+                                    <button class="calculator-btn clear" onclick="clearEntry()">CE</button>
+                                    
+                                    <!-- الصف السادس -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('1')">1</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('2')">2</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('3')">3</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('-')">-</button>
+                                    <button class="calculator-btn function" onclick="backspace()">⌫</button>
+                                    
+                                    <!-- الصف السابع -->
+                                    <button class="calculator-btn" onclick="appendToDisplay('0')">0</button>
+                                    <button class="calculator-btn" onclick="appendToDisplay('.')">.</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('%')">%</button>
+                                    <button class="calculator-btn operator" onclick="appendToDisplay('+')">+</button>
+                                    <button class="calculator-btn equals" onclick="calculateResult()">=</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1540,6 +1590,22 @@
         // وظيفة تبديل القوائم المنسدلة
         function toggleDropdown(dropdownId) {
             const dropdown = document.getElementById(dropdownId);
+            const icon = dropdown.previousElementSibling.querySelector('i');
+            
+            dropdown.classList.toggle('show');
+            
+            if (dropdown.classList.contains('show')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // وظيفة تبديل القائمة المنسدلة للآلة الحاسبة
+        function toggleCalculatorDropdown() {
+            const dropdown = document.getElementById('calculatorDropdown');
             const icon = dropdown.previousElementSibling.querySelector('i');
             
             dropdown.classList.toggle('show');
