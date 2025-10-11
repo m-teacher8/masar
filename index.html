@@ -1564,22 +1564,6 @@
             </div>
         </div>
         
-        <!-- نافذة الفيديو المنبثقة للدرس 1-2 -->
-        <div class="video-modal" id="videoModal1_2">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>الدرس 1-2 تمثيل المناطق على المستوى الإحداثي</h3>
-                    <button class="close-btn" onclick="closeVideoModal1_2()">&times;</button>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1I_1QqlsG3DVHsQdNtMplV_3eZq6hAYOM/preview" allow="autoplay" allowfullscreen></iframe>
-                </div>
-                <a href="https://drive.google.com/file/d/1I_1QqlsG3DVHsQdNtMplV_3eZq6hAYOM/view" class="mobile-video-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> فتح الفيديو في نافذة جديدة
-                </a>
-            </div>
-        </div>
-        
         <footer>
             <p>© 2025 منصة مسار للرياضيات. جميع الحقوق محفوظة.</p>
         </footer>
@@ -1683,30 +1667,16 @@
             document.body.style.overflow = ''; // إعادة التمرير
         }
 
-        // وظيفة فتح نافذة الفيديو للدرس 1-2
+        // وظيفة فتح نافذة الفيديو للدرس 1-2 - تم التعديل لفتح الرابط الجديد
         function openLesson1_2() {
-            const modal = document.getElementById('videoModal1_2');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // منع التمرير عند فتح النافذة
-        }
-
-        // وظيفة إغلاق نافذة الفيديو للدرس 1-2
-        function closeVideoModal1_2() {
-            const modal = document.getElementById('videoModal1_2');
-            modal.classList.remove('show');
-            document.body.style.overflow = ''; // إعادة التمرير
+            // فتح الرابط الجديد في نافذة جديدة
+            window.open('https://h.top4top.io/m_35713qvmu1.mp4', '_blank');
         }
 
         // إغلاق النوافذ عند النقر خارجها
         document.getElementById('videoModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeVideoModal();
-            }
-        });
-
-        document.getElementById('videoModal1_2').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeVideoModal1_2();
             }
         });
 
