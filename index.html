@@ -921,11 +921,6 @@
             gap: 5px;
         }
         
-        .visitor-counter:hover {
-            background: rgba(44, 62, 80, 0.95);
-            transform: scale(1.05);
-        }
-        
         .visitor-counter i {
             font-size: 0.9rem;
         }
@@ -933,51 +928,6 @@
         .visitor-counter .count {
             font-weight: bold;
             color: #ffd700;
-        }
-        
-        .admin-panel {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background: rgba(74, 105, 189, 0.9);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            z-index: 999;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-        }
-        
-        .admin-panel:hover {
-            background: rgba(74, 105, 189, 1);
-            transform: scale(1.05);
-        }
-        
-        .admin-panel i {
-            font-size: 0.9rem;
-        }
-        
-        .reset-btn {
-            background: #ff6b6b;
-            border: none;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            cursor: pointer;
-            margin-right: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .reset-btn:hover {
-            background: #ff5252;
-            transform: scale(1.1);
         }
         
         /* تحسينات للهواتف المحمولة */
@@ -1085,13 +1035,6 @@
                 padding: 6px 10px;
                 font-size: 0.7rem;
             }
-            
-            .admin-panel {
-                top: 5px;
-                left: 5px;
-                padding: 6px 10px;
-                font-size: 0.7rem;
-            }
         }
         
         @media (max-width: 480px) {
@@ -1160,12 +1103,6 @@
     </style>
 </head>
 <body>
-    <!-- لوحة التحكم للمسؤول -->
-    <div class="admin-panel" id="adminPanel">
-        <i class="fas fa-cog"></i>
-        <span>إعدادات الزوار</span>
-    </div>
-    
     <!-- عداد الزوار -->
     <div class="visitor-counter" id="visitorCounter">
         <i class="fas fa-users"></i>
@@ -1725,27 +1662,11 @@
                 visitorCount = parseInt(localStorage.getItem(VISITOR_KEY)) || 0;
                 updateVisitorCounter();
             }
-            
-            // إضافة مستمع حدث للوحة التحكم
-            document.getElementById('adminPanel').addEventListener('click', showAdminPanel);
         }
         
         // وظيفة تحديث عداد الزوار على الشاشة
         function updateVisitorCounter() {
             document.getElementById('visitorCount').textContent = visitorCount.toLocaleString();
-        }
-        
-        // وظيفة عرض لوحة التحكم للمسؤول
-        function showAdminPanel() {
-            const count = localStorage.getItem(VISITOR_KEY) || 0;
-            const reset = confirm(`عدد زوار المنصة: ${count}\n\nهل تريد إعادة تعيين العداد؟`);
-            
-            if (reset) {
-                localStorage.setItem(VISITOR_KEY, 0);
-                visitorCount = 0;
-                updateVisitorCounter();
-                showToast('تم إعادة تعيين عداد الزوار بنجاح!');
-            }
         }
 
         // وظيفة تبديل فتح وإغلاق الأقسام
